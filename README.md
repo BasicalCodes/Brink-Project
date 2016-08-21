@@ -12,7 +12,6 @@ The program is not intended for any use. And don't expect much of the program be
 ##Goals:
 
 - [x] Publish the program through GitHub
-- [ ] Open a pull request
 
 
 # Main Goal:
