@@ -1,0 +1,2 @@
+This branch contains the file Brink.
+Brink is very small, so you don't have to worry about the space in your hard drive.
