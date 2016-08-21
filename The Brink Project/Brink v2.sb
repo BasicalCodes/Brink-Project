@@ -1,0 +1,305 @@
+TextWindow.Title = "Brink v2.5"
+restart:
+TextWindow.WriteLine("Welcome to Brink v2.5 Alpha")
+TextWindow.WriteLine("The date today is: " + Clock.Date)
+TextWindow.WriteLine("The time today is: " + Clock.Time)
+TextWindow.WriteLine("If you are a user, please type holler as a password.")
+TextWindow.Write("Enter the password: ")
+' If others use this thing, they need a password. Or they can look in the code :/
+pass = TextWindow.Read()
+
+If pass = "Holler" Or pass = "holler" Then
+  main()
+Else
+  TextWindow.WriteLine("You entered wrong. Please try again.")
+  TextWindow.Pause()
+  TextWindow.Clear()
+  Goto restart
+EndIf
+
+' The start of everything. 
+
+Sub main
+  rezero:
+  TextWindow.Clear()
+  TextWindow.WriteLine("Authorization Granted.")
+  TextWindow.WriteLine(" -------------------- ")
+  TextWindow.WriteLine("Please do note that the program")
+  TextWindow.WriteLine("Is still in the alpha stage and has limited features.")
+  TextWindow.WriteLine("Some of the features might get deleted or improved.")
+  TextWindow.WriteLine("Brink is empty, so don't check it. Things are not going good there.")
+  TextWindow.WriteLine("I might probably focus on the command line rather than the window version.")
+  TextWindow.WriteLine("Press a key.")
+  TextWindow.WriteLine("What do you want to do?")
+  TextWindow.WriteLine("(1) Use Built-In Calculator")
+  TextWindow.WriteLine("(2) Read the short terms and policies.")
+  TextWindow.WriteLine("(3) About")
+  TextWindow.WriteLine("(4) Developer's Code")
+  TextWindow.WriteLine("(5) Update Log")
+  TextWindow.WriteLine("(6) Upcoming updates")
+  TextWindow.WriteLine("(7) Brink")
+  TextWindow.WriteLine("(8) Exit")
+  
+  mykey = TextWindow.ReadKey() 'KeyEvent. When the user presses a key, the program will respond.
+  
+  If mykey = "1" Then    ' This are the conditionals. When one presses the key, it will trigger an event. It must press a specific key otherwise it won't work.
+    cal()
+  ElseIf mykey = "2" Then
+    terms()
+  ElseIf mykey = "3" Then
+    about()
+  ElseIf mykey = "4" Then
+    devcode()
+  ElseIf mykey = "5" Then
+    log()
+  ElseIf mykey = "6" Then
+    upcoming()
+  ElseIf mykey = "7" Then
+    newwindow()
+  ElseIf mykey = "8" Then
+    programkill()
+  EndIf
+  ' The purpose of the line below is to avoid the program being closed when a wrong key or Enter is pressed.
+  
+  TextWindow.Clear() 'Put it in the end so it won't disrupt the other code.
+  main() 'Call the main sub.
+  ' End of the line purpose
+  Endsub ' End the subroutine
+  
+Sub cal
+  TextWindow.Clear()
+  TextWindow.WriteLine("Brink Calculator")
+  TextWindow.Write("Enter the first number: ")
+  
+  first = TextWindow.ReadNumber()
+  
+  TextWindow.Pause()
+  TextWindow.Clear()
+  
+  TextWindow.Write("Enter the second number: ")
+  
+  second = TextWindow.ReadNumber()
+  
+  TextWindow.Pause()
+  TextWindow.Clear()
+  
+  TextWindow.WriteLine("Choose operation: (+, -, *, /)")
+  TextWindow.Write("Operation: ")
+  
+  op = TextWindow.Read()
+  
+  If op = "+" Then
+    result = first + second
+    TextWindow.WriteLine("The result is: " + result)
+  ElseIf op = "-" Then
+    result = first - second
+    TextWindow.WriteLine("The result is: " + result)
+  ElseIf op = "*" Then
+    result = first * second
+    TextWindow.WriteLine("The result is: " + result)
+  ElseIf op = "/" Then
+    result = first / second
+    TextWindow.WriteLine("The result is: " + result)
+  EndIf
+  
+  TextWindow.Pause()
+  TextWindow.Clear()
+  
+  TextWindow.WriteLine("Time to go back.")
+  TextWindow.Pause()
+  TextWindow.Clear()
+  main()
+EndSub
+
+Sub terms
+  TextWindow.Clear()
+  TextWindow.WriteLine("        TERMS AND POLICIES:          ")
+  TextWindow.WriteLine("Well, the program has no terms for now lol.")
+  TextWindow.WriteLine("But, you shouldn't distribute it.")
+  TextWindow.WriteLine("If you do want to distribute it, please credit the original owner.")
+  TextWindow.WriteLine("That's all. Might add in the future.")
+  TextWindow.Pause()
+  TextWindow.Clear()
+  TextWindow.WriteLine("Time to go back.")
+  TextWindow.Pause()
+  TextWindow.Clear()
+  main()
+EndSub
+
+Sub about
+  TextWindow.Clear()
+  TextWindow.WriteLine("       ABOUT        ")
+  TextWindow.WriteLine(" ------------------ ")
+  TextWindow.WriteLine(" Brink is a software which is made for fun.")
+  TextWindow.WriteLine("Has a 290+ lines of code and might add more.")
+  TextWindow.WriteLine("Made by BasicalCodes.")
+  TextWindow.WriteLine("He doesn't give a cake. But if you do find his cake, then well.. :P ")
+  TextWindow.Pause()
+  TextWindow.Clear()
+  TextWindow.WriteLine("Time to go back.")
+  TextWindow.Pause()
+  TextWindow.Clear()
+  main()
+EndSub
+
+Sub programkill
+  TextWindow.Clear()
+  TextWindow.WriteLine("You sure you want to exit?")
+  TextWindow.Write("Y/N: ")
+  response = TextWindow.Read()
+  
+  If response = "Y" Or response = "y" Then
+    TextWindow.WriteLine("Goodbye.")
+    Program.End()
+  Else
+    TextWindow.WriteLine("Then let's go back to the menu.")
+    TextWindow.Pause()
+    TextWindow.Clear()
+    main()
+    EndIf
+    EndSub
+  
+Sub log 
+  TextWindow.Clear()
+  TextWindow.WriteLine("  UPDATE LOG for v2.5:    ")
+  TextWindow.WriteLine(" --------------- ")
+  TextWindow.WriteLine("Brink was released.")
+  TextWindow.WriteLine("Added Calculator.")
+  TextWindow.WriteLine("Added Brink Window.")
+  TextWindow.WriteLine("Made some little changes.")
+  TextWindow.Pause()
+  TextWindow.Clear()
+  TextWindow.WriteLine("Time to go back.")
+  main()
+EndSub
+
+Sub upcoming 
+  TextWindow.Clear()
+  TextWindow.WriteLine("Upcoming updates for the next version: v3")
+  TextWindow.WriteLine(" ------------------------------------    ")
+  TextWindow.WriteLine(" Add a login system.")
+  TextWindow.WriteLine(" Add a program storage for storing data. ")
+  TextWindow.WriteLine(" Add a notepad which can be stored. ")
+  TextWindow.WriteLine(" Wait for more updates on brink. Stay tuned. ")
+  TextWindow.Pause()
+  TextWindow.Clear()
+  TextWindow.WriteLine("Time to go back.") 
+  main()
+  EndSub
+  
+  Sub newwindow
+    TextWindow.Clear()
+    TextWindow.WriteLine("So, you're here huh.")
+    TextWindow.Read()
+    TextWindow.WriteLine("Well, the program isn't done yet. It's on experimental stage.")
+    TextWindow.Read()
+    TextWindow.WriteLine("You can try it, but the program is empty. lol")
+    TextWindow.Read()
+    TextWindow.WriteLine("Oh and uh, lemme spoil you something, special features will appear!!")
+    TextWindow.Read()
+    TextWindow.Read()
+    TextWindow.WriteLine("Well, let's get to the point already.")
+    TextWindow.WriteLine(" ------------------------------- ")
+    TextWindow.Write("Do you want to open the program Y/N: ")
+    expose = TextWindow.Read()
+    
+    If expose = "Y" Or expose = "y" Then
+      TextWindow.Clear()
+      window()
+      main()
+    Else
+      TextWindow.Clear()
+      TextWindow.WriteLine("It seems that you changed your mind. Let's go back.")
+      TextWindow.Pause()
+      TextWindow.Clear()
+      main()
+      EndIf
+    EndSub
+    
+    Sub window
+      GraphicsWindow.Show()
+      GraphicsWindow.Height = 540
+      GraphicsWindow.Width = 700
+      GraphicsWindow.Title = "Brink Window Experimental"
+      GraphicsWindow.ShowMessage("Welcome to Brink!", "Welcome")
+      GraphicsWindow.ShowMessage("The program is in experimental, one feature or no feature is added right now.", "Reminder")
+      GraphicsWindow.DrawText(333, 80, "Brink")
+      GraphicsWindow.FillRectangle(250, 300, 190, 50)
+      GraphicsWindow.CanResize = "False"
+      GraphicsWindow.DrawText(340, 350, "Exit")
+      
+      GraphicsWindow.MouseDown = ClickedDown
+      
+    EndSub
+    
+    Sub devcode
+      TextWindow.Clear()
+      TextWindow.WriteLine("Um, you might be wondering, why is this one made?")
+      TextWindow.Read()
+      TextWindow.WriteLine("Well, the purpose of this thing is to remind me some items xD")
+      TextWindow.Read()
+      TextWindow.WriteLine("So you probably won't understand things written here. But if you do well Ok.")
+      TextWindow.Read()
+      TextWindow.WriteLine("Okay I won't screw around.. Activate the sequence.")
+      TextWindow.Read()
+      TextWindow.Write("Sinth v1 - Choice: A or N: ")
+      
+      choice = TextWindow.Read()
+      
+      If choice = "A" Or choice = "a" Then
+        anotherone()
+      Else
+        TextWindow.WriteLine("Wrong typed? Let's go to the menu.")
+        main()
+      EndIf
+      EndSub
+            
+    Sub ClickedDown
+      
+      x = GraphicsWindow.MouseX
+      y = GraphicsWindow.MouseY
+      
+      If x > 59 And x < 441 And y > 109 And y < 491 Then
+        GraphicsWindow.Hide()
+        EndIf
+        
+      EndSub
+      
+      Sub anotherone
+        TextWindow.Show()
+        bat:
+        TextWindow.Clear()
+        TextWindow.WriteLine("Reminders: ")
+        TextWindow.WriteLine("First 2 are the middle point.")
+        TextWindow.WriteLine("Second 2 are width and height")
+        TextWindow.WriteLine("The FillRectangle ")
+        TextWindow.WriteLine("----------------------")
+        TextWindow.WriteLine(" 400(width), 300(height), 50(x) ,50")
+        TextWindow.WriteLine("To know the coordiantes of the rectangle,")
+        TextWindow.WriteLine("Do the: Width - X, Height - X, Height + X")
+        TextWindow.WriteLine("For the: x: -1 and +1 and y: -1 and +1")
+        TextWindow.Pause()
+        TextWindow.Write("You done Y/N: ")
+        
+        anotherchoice = TextWindow.Read()
+        
+        If anotherchoice = "Y" Or anotherchoice = "y" Then
+          TextWindow.Clear()
+          main()
+        Else
+          TextWindow.Clear()
+          Goto bat
+          EndIf
+        EndSub
+      
+      
+    
+
+    
+ 
+    
+   
+   
+  
+
+  
